@@ -4,6 +4,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KuliahController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,28 +45,35 @@ use Illuminate\Support\Facades\Route;
 
 // Pertemuan 3
 // Praktikum 1
-Route::get('/', function () {
-    return view('pertemuan3.praktikum1.home');
-});
+// Route::get('/', function () {
+//     return view('pertemuan3.praktikum1.home');
+// });
 
-Route::prefix('product')->group(function () {
-    Route::get('/list', function () {
-        return view('pertemuan3.praktikum1.product');
-    });
-});
+// Route::prefix('product')->group(function () {
+//     Route::get('/list', function () {
+//         return view('pertemuan3.praktikum1.product');
+//     });
+// });
 
-Route::get ('/news/{param}', function ($param) {
-    return view('pertemuan3.praktikum1.news', ['param' => $param]);
-});
+// Route::get ('/news/{param}', function ($param) {
+//     return view('pertemuan3.praktikum1.news', ['param' => $param]);
+// });
 
-Route::prefix('program')->group(function () {
-    Route::get('/list', function () {
-        return view('pertemuan3.praktikum1.program');
-    });
-});
+// Route::prefix('program')->group(function () {
+//     Route::get('/list', function () {
+//         return view('pertemuan3.praktikum1.program');
+//     });
+// });
 
-Route::get ('/about', function () {
-    return view('pertemuan3.praktikum1.about');
-});
+// Route::get ('/about', function () {
+//     return view('pertemuan3.praktikum1.about');
+// });
 
-Route::resource('contact', HomeController::class);
+// Route::resource('contact', HomeController::class);
+
+// Praktikum 2
+Route::get('/', [DashboardController::class, 'index']);
+
+Route::get('/profile', [ProfileController::class, 'profile']);
+
+Route::get('/kuliah', [KuliahController::class, 'kuliah']);
