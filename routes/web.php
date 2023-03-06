@@ -8,6 +8,7 @@ use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
+use App\Http\Controllers\KendaraanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -72,8 +73,11 @@ use Illuminate\Support\Facades\Route;
 // Route::resource('contact', HomeController::class);
 
 // Praktikum 2
-Route::get('/', [DashboardController::class, 'index']);
+// Route::get('/', [DashboardController::class, 'index']);
 
-Route::get('/profile', [ProfileController::class, 'profile']);
+// Route::get('/profile', [ProfileController::class, 'profile']);
 
-Route::get('/kuliah', [KuliahController::class, 'kuliah']);
+// Route::get('/kuliah', [KuliahController::class, 'kuliah']);
+
+// Pertemuan 4
+Route::get('/kendaraan', [KendaraanController::class, 'index']);
