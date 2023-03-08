@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
 use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\HobiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,4 +81,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/kuliah', [KuliahController::class, 'kuliah']);
 
 // Pertemuan 4
-Route::get('/kendaraan', [KendaraanController::class, 'index']);
+// Praktikum 
+// Route::get('/kendaraan', [KendaraanController::class, 'index']);
+
+// Tugas
+Route::get('/hobi', [HobiController::class, 'index']);

@@ -13,3 +13,4 @@ class KendaraanController extends Controller
         return view('pertemuan4.kendaraan') -> with('kendaraan', $kendaraan);
     }
 }
+

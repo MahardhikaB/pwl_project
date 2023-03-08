@@ -50,6 +50,28 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/hobi" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Hobi
+              </p>
+            </a>
+          </li><li class="nav-item">
+            <a href="/kuliah" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Keluarga
+              </p>
+            </a>
+          </li><li class="nav-item">
+            <a href="/kuliah" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Mata Kuliah
+              </p>
+            </a>
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
