@@ -58,7 +58,7 @@
               </p>
             </a>
           </li><li class="nav-item">
-            <a href="/kuliah" class="nav-link">
+            <a href="/keluarga" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
               <p>
                 Keluarga

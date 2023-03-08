@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KuliahController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\HobiController;
+use App\Http\Controllers\KeluargaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,3 +87,4 @@ use Illuminate\Support\Facades\Route;
 
 // Tugas
 Route::get('/hobi', [HobiController::class, 'index']);
+Route::get('/keluarga', [KeluargaController::class, 'index']);
