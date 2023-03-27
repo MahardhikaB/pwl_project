@@ -65,7 +65,7 @@
               </p>
             </a>
           </li><li class="nav-item">
-            <a href="/kuliah" class="nav-link">
+            <a href="/matkul" class="nav-link">
               <i class="nav-icon fas fa-image"></i>
               <p>
                 Mata Kuliah
