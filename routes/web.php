@@ -13,6 +13,7 @@ use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\HobiController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\MataKuliahController;
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -99,6 +100,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/matkul', [MataKuliahController::class, 'index']);
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    // Pertemuan 7
+    Route::resource('/mahasiswa', MahasiswaController::class)->parameter('mahasiswa', 'id');
 });
 
 

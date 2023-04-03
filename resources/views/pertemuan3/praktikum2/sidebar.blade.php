@@ -71,6 +71,13 @@
                 Mata Kuliah
               </p>
             </a>
+          </li><li class="nav-item">
+            <a href="/mahasiswa" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Mahasiswa
+              </p>
+            </a>
           </li>
       </ul>
     </nav>
