@@ -105,8 +105,10 @@ class MahasiswaController extends Controller
      * @param  \App\Models\MahasiswaModel  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MahasiswaModel $mahasiswa)
+    public function destroy($id)
     {
-        //
+        MahasiswaModel::where('id', '=', $id)->delete();
+        return redirect('mahasiswa')
+        ->with('success', 'Data berhasil dihapus');
     }
 }

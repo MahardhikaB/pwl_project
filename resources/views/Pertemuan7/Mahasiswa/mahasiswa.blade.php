@@ -23,7 +23,11 @@
                 <td>{{ $m->hp }}</td>
                 <td>
                     <a href="/mahasiswa/{{ $m->id }}/edit" class="btn btn-warning">Edit</a>
-                    <a href="/mahasiswa/{{ $m->id }}/delete" class="btn btn-danger">Delete</a>
+                    <form method="POST" action="{{url('/mahasiswa/'.$m->id)}}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
