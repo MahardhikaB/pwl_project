@@ -7,7 +7,7 @@
             <th>No.</th>
             <th>NIM</th>
             <th>Nama</th>
-            <th>Prodi</th>
+            <th>Kelas</th>
             <th>JK</th>
             <th>HP</th>
             <th>Action</th>
@@ -20,15 +20,16 @@
                 <td>{{ $i+1 }}</td>
                 <td>{{ $m->nim }}</td>
                 <td>{{ $m->nama }}</td>
-                <td>{{ $m->prodi->nama_prodi }}</td>
+                <td>{{ $m->kelas->nama_kelas }}</td>
                 <td>{{ $m->jk }}</td>
                 <td>{{ $m->hp }}</td>
                 <td>
-                    <a href="/mahasiswa/{{ $m->id }}/edit" class="btn btn-warning">Edit</a>
+                    <a href="/mahasiswa/{{ $m->id }}" class="btn btn-sm btn-info w-100">Detail</a>
+                    <a href="/mahasiswa/{{ $m->id }}/edit" class="btn btn-warning my-2 w-100">Edit</a>
                     <form method="POST" action="{{url('/mahasiswa/'.$m->id)}}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-danger w-100">Delete</button>
                     </form>
                 </td>
             </tr>
