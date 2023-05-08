@@ -7,6 +7,7 @@
             <th>No.</th>
             <th>NIM</th>
             <th>Nama</th>
+            <th>Prodi</th>
             <th>JK</th>
             <th>HP</th>
             <th>Action</th>
@@ -19,6 +20,7 @@
                 <td>{{ $i+1 }}</td>
                 <td>{{ $m->nim }}</td>
                 <td>{{ $m->nama }}</td>
+                <td>{{ $m->prodi->nama_prodi }}</td>
                 <td>{{ $m->jk }}</td>
                 <td>{{ $m->hp }}</td>
                 <td>
