@@ -23,13 +23,13 @@
                 <td>{{ $m->kelas->nama_kelas }}</td>
                 <td>{{ $m->jk }}</td>
                 <td>{{ $m->hp }}</td>
-                <td>
-                    <a href="/mahasiswa/{{ $m->id }}" class="btn btn-sm btn-info w-100">Detail</a>
-                    <a href="/mahasiswa/{{ $m->id }}/edit" class="btn btn-warning my-2 w-100">Edit</a>
+                <td style="width: 17%">
+                    <a href="/mahasiswa/{{ $m->id }}" class="btn btn-sm btn-info w-50">Detail</a>
+                    <a href="/mahasiswa/{{ $m->id }}/edit" class="btn btn-sm btn-warning my-1 w-50">Edit</a>
                     <form method="POST" action="{{url('/mahasiswa/'.$m->id)}}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-sm btn-danger w-100">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-danger w-50">Delete</button>
                     </form>
                 </td>
             </tr>
