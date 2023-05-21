@@ -1,6 +1,6 @@
 @extends('template')
 @section('content')
-<form method="POST" action="{{$url_form}}">
+<form method="POST" action="{{$url_form}}" enctype="multipart/form-data">
 @csrf
 {!!isset($mhs)?method_field('PUT'):''!!}
 
@@ -16,6 +16,14 @@
     <label for="nama">Nama</label>
     <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama" value="{{isset($mhs)?$mhs->nama:old('nama')}}">
     @error('nama')
+        <small class="text-danger">{{ $message }}</small>
+    @enderror
+</div>
+
+<div class="form-group">
+    <label for="foto">Foto</label>
+    <input type="file" class="form-control" id="foto" name="foto" placeholder="Lampirkan Foto" value="{{isset($mhs)?$mhs->foto:old('foto')}}">
+    @error('foto')
         <small class="text-danger">{{ $message }}</small>
     @enderror
 </div>

@@ -108,6 +108,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('article', ArticleController::class);
 
     Route::get('/articlepdf', [ArticleController::class, 'cetak_pdf']);
+
+    Route::get('/export-pdf/{id}', [MahasiswaController::class, 'export_pdf']);
 });
 
 

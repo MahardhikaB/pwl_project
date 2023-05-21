@@ -35,4 +35,5 @@
 
         </tbody>
     </table>
+    <a href="/export-pdf/{{$data->id}}" class="btn btn-sm btn-info text-center">Cetak PDF</a>
 @endsection
