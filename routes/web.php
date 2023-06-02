@@ -110,6 +110,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/articlepdf', [ArticleController::class, 'cetak_pdf']);
 
     Route::get('/export-pdf/{id}', [MahasiswaController::class, 'export_pdf']);
+
+    // Pertemuan 12
+    Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 });
 
 

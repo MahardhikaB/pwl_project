@@ -8,6 +8,8 @@ use App\Models\KelasModel;
 use App\Models\Mahasiswa_MataKuliahModel;
 use App\Models\MatKulMahasiswaModel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class MahasiswaController extends Controller
 {
@@ -18,9 +20,24 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mhs = MahasiswaModel::with('kelas')->get();
-        $paginate = MahasiswaModel::orderBy('nim', 'asc')->paginate(3);
-        return view('Pertemuan7.Mahasiswa.mahasiswa', ['mhs' => $mhs, 'paginate' => $paginate]);
+        $kelas=KelasModel::all();
+        return view('Pertemuan7.Mahasiswa.mahasiswa')
+            ->with('kelas', $kelas);
+        // $mhs = MahasiswaModel::with('kelas')->get();
+        // $paginate = MahasiswaModel::orderBy('nim', 'asc')->paginate(3);
+        //  ,['mhs' => $mhs, 'paginate' => $paginate]);
+    }
+
+    public function data()
+    {
+        $data = MahasiswaModel::all();
+    
+        return DataTables::of($data)
+            ->addColumn('kelas', function ($data) {
+            return $data->kelas->nama_kelas;
+            })
+            ->addIndexColumn()
+            ->make(true);
     }
 
     /**
@@ -42,7 +59,7 @@ class MahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store_old(Request $request)
     {
         $request->validate([
             'nim' => 'required|string|max:10|unique:mahasiswa,nim',
@@ -71,6 +88,42 @@ class MahasiswaController extends Controller
         $mahasiswa->save();
 
         return redirect('/mahasiswa')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function store(Request $request)
+    {
+        $rule = [
+            'nim' => 'required|string|max:10|unique:mahasiswa,nim',
+            'nama' => 'required|string|max:50',
+            'hp' => 'required|digits_between:6,15',
+        ];
+
+        $data = $request->all();
+        $foto = $request->foto;
+
+        $validator = Validator::make($data, $rule);
+        if($validator->fails()){
+            return response()->json([
+                'status' => false,
+                'modal_close' => false,
+                'message' => 'Data gagal ditambahkan. ' .$validator->errors()->first(),
+                'data' => $validator->errors()
+            ]);
+        }
+
+        if($foto){
+            $image_name = $foto->store('images', 'public');
+            $data['foto'] = $image_name;
+
+        }
+
+        $mhs = MahasiswaModel::create($data);
+        return response()->json([
+            'status' => ($mhs),
+            'modal_close' => false,
+            'message' => ($mhs)? 'Data berhasil ditambahkan' : 'Data gagal ditambahkan',
+            'data' => null
+        ]);
     }
 
     /**
